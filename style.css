@@ -1,0 +1,9 @@
+.pixel {
+    border: solid black 1px;
+    width: 10px;
+    height: 10px;
+}
+
+.container {
+    display: flex;
+}
