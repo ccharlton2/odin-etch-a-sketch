@@ -1,5 +1,6 @@
 const mainContainer = document.querySelector('.container');
 const drawButton = document.querySelector('.draw');
+const eraseButton = document.querySelector('.erase');
 const gridDimensionInput = document.querySelector('.grid-value');
 const modeSelectInputs = document.querySelectorAll('.mode-select > input');
 
@@ -14,6 +15,8 @@ drawButton.addEventListener('click', () => {
         alert(gridValue);
     }
 });
+
+eraseButton.addEventListener('click', erase);
 
 modeSelectInputs.forEach((input) => {
     input.addEventListener('click', () => {
@@ -51,29 +54,26 @@ function drawGrid(gridValue) {
             square.classList.toggle('pixel');
 
             square.addEventListener('mouseover', (e) => {
-                    modeSelection = getModeSelection();
+                modeSelection = getModeSelection();
 
-                    switch (modeSelection) {
-                        case 'normal':
-                            e.target.style.backgroundColor = 'rgb(0, 0, 0)';
-                            break;
-                        case 'crazy':
-                            e.target.style.backgroundColor = getRandomRgb();
-                        break;
-
-                        case 'etch':
-                            e.target.style.backgroundColor = etch(e.target.style.backgroundColor  === '' ? 'rgb(128, 128, 128)' : e.target.style.backgroundColor)
-                        break;
-                    
-                        default:
-                            e.target.style.backgroundColor = 'rgb(0, 0, 0)';
-                            break;
-                    }
-                    if (modeSelection === 'normal') {
+                switch (modeSelection) {
+                    case 'normal':
                         e.target.style.backgroundColor = 'rgb(0, 0, 0)';
-                    }
+                        break;
+                    case 'crazy':
+                        e.target.style.backgroundColor = getRandomRgb();
+                        break;
+                    case 'etch':
+                        e.target.style.backgroundColor = etch(e.target.style.backgroundColor === '' ? 'rgb(128, 128, 128)' : e.target.style.backgroundColor)
+                        break;
+                    case 'erase':
+                        e.target.style.backgroundColor = e.target.style.backgroundColor = 'rgb(0, 0, 0)'
+                        break;
+                    default:
+                        e.target.style.backgroundColor = 'rgb(0, 0, 0)';
+                        break;
                 }
-            );
+            });
 
             gridRow.appendChild(square);
         }
@@ -95,7 +95,7 @@ function getModeSelection() {
     }
 }
 
-function etch (rgbValue) {
+function etch(rgbValue) {
     let values = rgbValue.substring(4, rgbValue.length - 1).split(',');
     let newRgbValue = '';
 
@@ -121,4 +121,8 @@ function getRandomRgb() {
 
 function generateRandomRgbValue() {
     return Math.floor(Math.random() * 255);
+}
+
+function erase() {
+    mainContainer.textContent = '';
 }
