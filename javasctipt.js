@@ -32,7 +32,7 @@ function getGridDimension(input) {
         let trimmedInput = input.trim();
         if (parseInt(trimmedInput)) {
 
-            return +trimmedInput <= 70 ? trimmedInput : 'Value cannot be higher than 70!';
+            return trimmedInput <= 70 ? Math.abs(trimmedInput) : 'Value cannot be higher than 70!';
         }
         else {
             return 'No characters please!'

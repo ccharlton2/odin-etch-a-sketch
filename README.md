@@ -11,3 +11,6 @@ By telling the computer how to draw something on a webpage
 
 # What tools are used?
 HTML, CSS, and Javascript
+
+# How does this work?
+The user is asked for an input. This input is a number value that will be used to draw a grid. The user will be able to draw on the grid by mousing over the grid squares, sort of like an [Etch-A-Sketch](https://en.wikipedia.org/wiki/Etch_A_Sketch).
