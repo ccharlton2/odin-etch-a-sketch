@@ -12,7 +12,13 @@ const gridDimensionInput = document.querySelector('.grid-value');
 drawButton.addEventListener('click', () => {
     let gridDimensionInput = document.querySelector('.grid-value');
     let gridValue = getGridDimension(gridDimensionInput.value);
-    drawGrid(gridValue);
+
+    if (parseInt(gridValue)) {
+        drawGrid(gridValue);
+    }
+    else {
+        alert(gridValue);
+    }
 });
 
 function getGridDimension(input) {
@@ -23,7 +29,8 @@ function getGridDimension(input) {
     else {
         let trimmedInput = input.trim();
         if (parseInt(trimmedInput)) {
-            return trimmedInput;
+
+            return +trimmedInput <= 70 ? trimmedInput : 'Value cannot be higher than 70!';
         }
         else {
             return 'No characters please!'

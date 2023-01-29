@@ -12,4 +12,8 @@ body {
 
 .container {
     display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 960px;
+    height: 840px;
 }
