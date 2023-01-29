@@ -23,15 +23,18 @@ body {
 
 .user-controls {
     display: flex;
+    flex-direction: column;
+    align-items: center;
     gap: 10px;
 }
 
 .draw {
-    flex-grow: 1;
+    padding: 5px;
+    background-color: bisque;
+    border-radius: 4px;
 }
 
 .grid-value {
     padding: 10px;
     border-radius: 4px;
-    width: 24px;
 }
