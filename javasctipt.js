@@ -22,7 +22,7 @@ drawButton.addEventListener('click', () => {
 });
 
 function getGridDimension(input) {
-// validate is number, trim, if blank space default 16
+    // validate is number, trim, if blank space default 16
     if (input.trim() === '') {
         return 16;
     }
@@ -51,9 +51,12 @@ function drawGrid(gridValue) {
             let square = document.createElement('div');
             square.classList.toggle('pixel');
             square.addEventListener('mouseover', (e) => {
+                console.log(e.buttons);
+                if (e.buttons) {
                     e.target.style.backgroundColor = 'black';
-                })
+                }
+            })
             gridRow.appendChild(square);
-        }       
+        }
     }
 }
