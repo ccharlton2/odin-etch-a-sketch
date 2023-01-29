@@ -1,10 +1,3 @@
-// sketch logic
-
-// const pixel = document.querySelector('.pixel')
-// pixel.addEventListener('mouseover', (e) => {
-//     e.target.style.backgroundColor = 'black';
-// })
-
 const mainContainer = document.querySelector('.container');
 const drawButton = document.querySelector('.draw');
 const gridDimensionInput = document.querySelector('.grid-value');
@@ -22,7 +15,6 @@ drawButton.addEventListener('click', () => {
 });
 
 function getGridDimension(input) {
-    // validate is number, trim, if blank space default 16
     if (input.trim() === '') {
         return 16;
     }
@@ -40,13 +32,12 @@ function getGridDimension(input) {
 
 function drawGrid(gridValue) {
     mainContainer.textContent = '';
-    // for loop 1
+
     for (let rowIndex = 0; rowIndex < gridValue; rowIndex++) {
         let gridRow = document.createElement('div');
         gridRow.classList.toggle('row');
         mainContainer.appendChild(gridRow);
 
-        // for loop 2
         for (let squareIndex = 0; squareIndex < gridValue; squareIndex++) {
             let square = document.createElement('div');
             square.classList.toggle('pixel');
