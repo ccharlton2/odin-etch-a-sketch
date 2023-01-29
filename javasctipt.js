@@ -40,16 +40,37 @@ function drawGrid(gridValue) {
 
         for (let squareIndex = 0; squareIndex < gridValue; squareIndex++) {
             let square = document.createElement('div');
+            let modeSelection = '';
             square.classList.toggle('pixel');
-            
+
             square.addEventListener('mouseover', (e) => {
                 if (e.buttons) {
-                    e.target.style.backgroundColor = 'black';
+                    modeSelection = getModeSelection();
+
+                    switch (modeSelection) {
+                        case 'normal':
+                            e.target.style.backgroundColor = 'rgb(0, 0, 0)';
+                            break;
+                        case 'crazy':
+                            e.target.style.backgroundColor = getRandomRgb();
+                        break;
+                        case 'etch':
+                        
+                        break;
+                    
+                        default:
+                            e.target.style.backgroundColor = 'rgb(0, 0, 0)';
+                            break;
+                    }
+                    if (modeSelection === 'normal') {
+                        e.target.style.backgroundColor = 'rgb(0, 0, 0)';
+                    }
                 }
             })
 
             square.addEventListener('click', (e) => {
-                e.target.style.backgroundColor = 'black';
+                modeSelection = getModeSelection();
+                e.target.style.backgroundColor = 'rgb(0, 0, 0)';
             })
             gridRow.appendChild(square);
         }
@@ -57,8 +78,8 @@ function drawGrid(gridValue) {
 }
 
 function getModeSelection() {
-    const crazyRadio = document.getElementById('#crazy');
-    const etchRadio = document.getElementById('#etch');
+    const crazyRadio = document.getElementById('crazy');
+    const etchRadio = document.getElementById('etch');
 
     if (crazyRadio.checked) {
         return 'crazy';
@@ -69,4 +90,16 @@ function getModeSelection() {
     else {
         return 'normal';
     }
+}
+
+function getRandomRgb() {
+    let red = generateRandomRgbValue();
+    let green = generateRandomRgbValue();
+    let blue = generateRandomRgbValue();
+
+    return `rgb(${red}, ${green}, ${blue})`;
+}
+
+function generateRandomRgbValue() {
+    return Math.floor(Math.random() * 255);
 }
