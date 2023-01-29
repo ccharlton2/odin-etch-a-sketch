@@ -51,7 +51,6 @@ function drawGrid(gridValue) {
             square.classList.toggle('pixel');
 
             square.addEventListener('mouseover', (e) => {
-                if (e.buttons) {
                     modeSelection = getModeSelection();
 
                     switch (modeSelection) {
@@ -74,12 +73,8 @@ function drawGrid(gridValue) {
                         e.target.style.backgroundColor = 'rgb(0, 0, 0)';
                     }
                 }
-            })
+            );
 
-            square.addEventListener('click', (e) => {
-                modeSelection = getModeSelection();
-                e.target.style.backgroundColor = 'rgb(0, 0, 0)';
-            })
             gridRow.appendChild(square);
         }
     }
