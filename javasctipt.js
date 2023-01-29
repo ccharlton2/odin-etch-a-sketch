@@ -61,8 +61,9 @@ function drawGrid(gridValue) {
                         case 'crazy':
                             e.target.style.backgroundColor = getRandomRgb();
                         break;
+
                         case 'etch':
-                        
+                            e.target.style.backgroundColor = etch(e.target.style.backgroundColor  === '' ? 'rgb(128, 128, 128)' : e.target.style.backgroundColor)
                         break;
                     
                         default:
@@ -97,6 +98,22 @@ function getModeSelection() {
     else {
         return 'normal';
     }
+}
+
+function etch (rgbValue) {
+    let values = rgbValue.substring(4, rgbValue.length - 1).split(',');
+    let newRgbValue = '';
+
+    for (let i = 0; i < values.length; i++) {
+        values[i] = parseFloat(values[i]);
+        if (values[i] > 0) {
+            values[i] -= 12.8;
+        }
+    }
+
+    newRgbValue = [`rgb(${values[0]}, ${values[1]}, ${values[2]})`]
+
+    return newRgbValue;
 }
 
 function getRandomRgb() {
