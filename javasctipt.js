@@ -41,13 +41,32 @@ function drawGrid(gridValue) {
         for (let squareIndex = 0; squareIndex < gridValue; squareIndex++) {
             let square = document.createElement('div');
             square.classList.toggle('pixel');
+            
             square.addEventListener('mouseover', (e) => {
-                console.log(e.buttons);
                 if (e.buttons) {
                     e.target.style.backgroundColor = 'black';
                 }
             })
+
+            square.addEventListener('click', (e) => {
+                e.target.style.backgroundColor = 'black';
+            })
             gridRow.appendChild(square);
         }
+    }
+}
+
+function getModeSelection() {
+    const crazyRadio = document.getElementById('#crazy');
+    const etchRadio = document.getElementById('#etch');
+
+    if (crazyRadio.checked) {
+        return 'crazy';
+    }
+    else if (etchRadio.checked) {
+        return 'etch';
+    }
+    else {
+        return 'normal';
     }
 }
