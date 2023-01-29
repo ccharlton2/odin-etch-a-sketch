@@ -11,18 +11,27 @@
 <body>
     <div class="container"></div>
     <div class="user-controls">
+
+        <div class="instructions">
+            <h3>Instructions</h3>
+            <p>Enter a value between 1 and 70, then click the draw button and a grid will be generated for you to draw on</p>
+        </div>
+        
         <input class="grid-value" type="text">
-        <button class="draw">Draw</button>
-        <button class="erase">Erase</button>
+
+        <div class="control-buttons">
+            <button class="draw">Draw</button>
+            <button class="erase">Erase</button>
+        </div>
 
         <div class="mode-select">
-            <label for="normal">Normal</label>
+            <label for="normal">NORMAL</label>
             <input type="radio" name="mode" id="normal" checked>
 
-            <label for="crazy">Crazy!</label>
+            <label for="crazy">C R A Z Y !!</label>
             <input type="radio" name="mode" id="crazy">
     
-            <label for="etch">Etch</label>
+            <label for="etch">ETCH</label>
             <input type="radio" name="mode" id="etch">
         </div>
     </div>
