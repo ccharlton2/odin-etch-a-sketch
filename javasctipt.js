@@ -1,6 +1,7 @@
 const mainContainer = document.querySelector('.container');
 const drawButton = document.querySelector('.draw');
 const gridDimensionInput = document.querySelector('.grid-value');
+const modeSelectInputs = document.querySelectorAll('.mode-select > input');
 
 drawButton.addEventListener('click', () => {
     let gridDimensionInput = document.querySelector('.grid-value');
@@ -12,6 +13,12 @@ drawButton.addEventListener('click', () => {
     else {
         alert(gridValue);
     }
+});
+
+modeSelectInputs.forEach((input) => {
+    input.addEventListener('click', () => {
+        mainContainer.textContent = '';
+    });
 });
 
 function getGridDimension(input) {
